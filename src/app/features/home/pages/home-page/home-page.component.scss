@@ -1,0 +1,16 @@
+@use 'utilities/utilities.scss' as utilities;
+
+.home-page {
+  width: 100%;
+  height: auto;
+  min-height: 100dvh;
+  padding: 32px;
+  background-color: var(--base-white);
+
+  &__header {
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    @include utilities.ontop-flexbox-param(flex, center, space-between);
+  }
+}

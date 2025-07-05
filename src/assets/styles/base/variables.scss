@@ -1,0 +1,91 @@
+// Typography
+$typo-base: 'Inter', Arial, sans-serif;
+
+// Z- index
+$index-1: 1101;
+$index-2: 1102;
+$index-3: 1103;
+
+// Colors
+
+:root {
+  --index-1: $index-1;
+  --index-2: $index-2;
+  --index-3: $index-3;
+
+
+  --base-white: #FFFFFF;
+  --base-black: #000000;
+
+  --primary-25: #FCFAFF;
+  --primary-50: #EFE6FD;
+  --primary-100: #CEB0FA;
+  --primary-200: #B78AF7;
+  --primary-300: #9654F4;
+  --primary-400: #8133F1;
+  --primary-500: #6200EE;
+  --primary-600: #5900D9;
+  --primary-700: #4600A9;
+  --primary-800: #360083;
+  --primary-900: #290064;
+
+  --gray-50: #FCFCFC;
+  --gray-100: #F5F5F5;
+  --gray-200: #F0F0F0;
+  --gray-300: #D9D9D9;
+  --gray-400: #BFBFBF;
+  --gray-500: #817F7F;
+  --gray-600: #595959;
+  --gray-700: #454545;
+  --gray-800: #262626;
+  --gray-900: #141414;
+
+  --error-50: #FFEDED;
+  --error-100: #FBD9D9;
+  --error-200: #F7B0B0;
+  --error-300: #E60000;
+  --error-400: #B80000;
+  --error-500: #8A0000;
+  --error-600: #510000;
+
+  --warning-50: #FFF6E6;
+  --warning-100: #FFF1DA;
+  --warning-200: #FFE2B2;
+  --warning-300: #FFA305;
+  --warning-400: #CC8204;
+  --warning-500: #996203;
+  --warning-600: #593902;
+
+  --success-50: #E6F6F4;
+  --success-100: #D9F2EF;
+  --success-200: #B0E4DD;
+  --success-300: #00A991;
+  --success-400: #007F6D;
+  --success-500: #006557;
+  --success-600: #003B33;
+
+  --info-50: #E6F2FE;
+  --info-100: #D9ECFD;
+  --info-200: #B1D7FB;
+  --info-300: #047EF1;
+  --info-400: #035FB5;
+  --info-500: #024C91;
+  --info-600: #012C54;
+
+  --fuchsia-50: #FFF3FA;
+  --fuchsia-100: #FACDE6;
+  --fuchsia-200: #F27CBD;
+  --fuchsia-300: #EF54A9;
+  --fuchsia-400: #EB2F96;
+  --fuchsia-500: #C82880;
+  --fuchsia-600: #861B56;
+
+
+  --yellow-50: #FDFDEB;
+  --yellow-100: #FCFBE0;
+  --yellow-200: #FDFA9A;
+  --yellow-300: #BDB828;
+  --yellow-400: #B1AD26;
+  --yellow-500: #8E8A1E;
+  --yellow-600: #535112;
+}

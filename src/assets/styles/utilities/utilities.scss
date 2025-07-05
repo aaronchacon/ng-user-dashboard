@@ -1,0 +1,27 @@
+// Utilities
+
+@mixin ontop-font-details($size, $line-h, $weight, $color) {
+  font-size: $size;
+  line-height: $line-h;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin ontop-flexbox-param($display, $align, $justify) {
+  display: $display;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin ontop-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin ontop-truncate-lines($size) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $size;
+  overflow: hidden;
+}

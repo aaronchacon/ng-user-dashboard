@@ -1,0 +1,45 @@
+@use '../../../../../assets/styles/utilities/utilities.scss' as utilities;
+@use '../../../../../assets/styles/base/breakpoints' as breakpoints;
+
+.user-list {
+  width: 100%;
+  background-color: var(--base-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+
+.user-list__filter {
+  padding: 24px;
+  border-bottom: 1px solid var(--gray-200);
+  @include utilities.ontop-flexbox-param(flex, center, space-between);
+  gap: 16px;
+
+  @include breakpoints.medium {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  @include breakpoints.small {
+    padding: 16px;
+  }
+}
+
+.user-list__results-count {
+  color: var(--gray-600);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.user-list__empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--gray-600);
+
+  p {
+    margin: 0;
+    font-size: 16px;
+  }
+}
+

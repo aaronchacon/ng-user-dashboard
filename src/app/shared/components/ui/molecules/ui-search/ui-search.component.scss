@@ -1,0 +1,28 @@
+@use 'utilities/utilities.scss' as utilities;
+
+.ui-search {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+
+  @include utilities.ontop-flexbox-param(flex, center, flex-start);
+}
+
+.ui-search__input {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 3px var(--primary-50);
+  }
+
+  &::placeholder {
+    color: var(--gray-500);
+  }
+}

@@ -1,0 +1,74 @@
+// Breakpoints
+
+// XX-small smartphones (landscape view)
+$screen-xxs: 295px;
+
+// X-small smartphones (landscape view)
+$screen-xs: 395px;
+
+// Small smartphones (landscape view)
+$screen-sm: 576px;
+
+// Medium tablets (portrait view)
+$screen-md: 767px;
+
+// Large Tablets and small desktops
+$screen-lg: 991.98px;
+
+// Extra Large Tablets and small desktops
+$screen-xl: 1024px;
+
+// Double Extra Large tablets and desktops
+$screen-xxl: 1200px;
+
+
+// XX-small devices 295 (mobile)
+@mixin xx-small {
+  @media (max-width: #{$screen-xxs}) {
+    @content;
+  }
+}
+
+// X-small devices 395 (mobile)
+@mixin x-small {
+  @media (max-width: #{$screen-xs}) {
+    @content;
+  }
+}
+
+// Small devices 576 (mobile)
+@mixin small {
+  @media (max-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+// Medium devices 767 (landscape tablets)
+@mixin medium {
+  @media (max-width: #{$screen-md}) {
+    @content;
+  }
+}
+
+// Large devices 992 (large tablet, small desktop)
+@mixin large {
+  @media (max-width: #{$screen-lg}) {
+    @content;
+  }
+}
+
+
+// Extra Large devices 1024 (desktop, ipad)
+@mixin xl-large {
+  @media (max-width: #{$screen-xl}) {
+    @content;
+  }
+}
+
+
+// Double Extra Large devices 1200 (desktop, ipad)
+@mixin xxl-large {
+  @media (max-width: #{$screen-xxl}) {
+    @content;
+  }
+}

@@ -1,0 +1,43 @@
+@if (users.length > 0) {
+  <div class="table-container">
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Empresa</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of users; track user.id) {
+          <tr class="user-row">
+            <td class="user-name">
+              <div class="name-cell">
+                <div class="user-avatar">{{ user.name.charAt(0).toUpperCase() }}</div>
+                <span>{{ user.name }}</span>
+              </div>
+            </td>
+            <td class="user-email">{{ user.email }}</td>
+            <td class="user-phone">{{ user.phone }}</td>
+            <td class="user-company">{{ user.company.name }}</td>
+            <td class="user-actions">
+              <button class="action-btn">Ver detalles</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+} @else if (!isLoading) {
+  <div class="no-users">
+    <p>No hay usuarios disponibles</p>
+  </div>
+}
+
+@if (isLoading) {
+  <div class="loading">
+    <p>Cargando usuarios...</p>
+  </div>
+}
