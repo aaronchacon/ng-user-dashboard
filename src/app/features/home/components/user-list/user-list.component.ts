@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, inject, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../../models/user.model';
 import { UISearchComponent } from '../../../../shared/components/ui/molecules/ui-search/ui-search.component';
 import { UserTableComponent } from '../user-table/user-table.component';
@@ -9,6 +9,7 @@ import { UserTableService } from './services/user-table.service';
 import { UserListProviders } from './user-list.providers';
 import { PaginationInfo } from './services/user-pagination.service';
 import { UiEmptyComponent } from '../../../../shared/components/ui/molecules/ui-empty/ui-empty.component';
+import { UserDetailModalComponent } from '../user-detail-modal/user-detail-modal.component';
 
 @Component({
   standalone: true,
@@ -16,7 +17,7 @@ import { UiEmptyComponent } from '../../../../shared/components/ui/molecules/ui-
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss',
   providers: UserListProviders,
-  imports: [CommonModule, UISearchComponent, UserTableComponent, UIPaginatorComponent, UiEmptyComponent],
+  imports: [CommonModule, UISearchComponent, UserTableComponent, UIPaginatorComponent, UiEmptyComponent, UserDetailModalComponent],
 })
 export class UserListComponent implements OnInit {
   private userTableService = inject(UserTableService);
@@ -25,6 +26,9 @@ export class UserListComponent implements OnInit {
     this.userTableService.setUsers(value);
   }
 
+  selectedUserSubject = new BehaviorSubject<User | null>(null);
+
+  selectedUser$ = this.selectedUserSubject.asObservable();
   paginatedUsers$: Observable<User[]> = this.userTableService.paginatedUsers$;
   paginationInfo$: Observable<PaginationInfo> = this.userTableService.paginationInfo$;
 
@@ -50,6 +54,10 @@ export class UserListComponent implements OnInit {
   }
 
   onUserSelected(user: User): void {
-    console.log(user);
+    this.selectedUserSubject.next(user);
+  }
+
+  onCloseModal(): void {
+    this.selectedUserSubject.next(null);
   }
 }

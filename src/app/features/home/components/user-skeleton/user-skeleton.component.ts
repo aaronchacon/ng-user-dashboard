@@ -10,5 +10,5 @@ import { CommonModule } from '@angular/common';
 })
 export class UserSkeletonComponent {
   skeletonRows = Array(6);
-  skeletonItems = Array(24);
+  skeletonItems = Array(30);
 }

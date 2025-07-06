@@ -1,0 +1,106 @@
+@use 'utilities/utilities.scss' as utilities;
+@use 'base/breakpoints' as breakpoints;
+
+.user-detail-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.user-detail-modal {
+  z-index: 1001;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  border-radius: 12px;
+  background-color: var(--base-white);
+  box-shadow: 0px 1px 2px 0px #1018280F, 0px 1px 3px 0px #1018281A;
+
+  &__header {
+    width: 100%;
+    height: auto;
+    padding: 24px 24px 0 24px;
+    margin-bottom: 20px;
+    @include utilities.flexbox-param(flex, flex-start, space-between);
+
+    .user-detail-modal__icon {
+      width: 44px;
+      height: 44px;
+      @include utilities.flexbox-param(flex, center, center);
+
+      img {
+        width: auto;
+        height: auto;
+      }
+    }
+
+    .user-detail-modal__close {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      @include utilities.flexbox-param(flex, center, center);
+
+      &:active {
+        transform: scale(0.98);
+      }
+
+      img {
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+
+  &__body {
+    width: 100%;
+    height: auto;
+    padding: 0 24px;
+
+    .user-detail-modal__title {
+      margin-bottom: 2px;
+      @include utilities.font-details(18px, 28px, 600, var(--gray-900));
+    }
+    .user-detail-modal__subtitle {
+      margin-bottom: 20px;
+      @include utilities.font-details(16px, 24px, 500, var(--gray-500));
+    }
+
+    .user-detail-modal__info {
+      width: 100%;
+      height: auto;
+
+      .user-detail-modal__info-item {
+        width: auto;
+        height: auto;
+        margin-bottom: 12px;
+        @include utilities.flexbox-param(flex, flex-start, flex-start);
+
+        .user-detail-modal__label {
+          margin-right: 8px;
+          @include utilities.font-details(14px, 20px, 500, var(--gray-500));
+        }
+
+        .user-detail-modal__value {
+          @include utilities.font-details(14px, 20px, 400, var(--gray-900));
+        }
+      }
+    }
+  }
+
+  &__footer {
+    gap: 12px;
+    width: 100%;
+    height: auto;
+    padding: 0 24px 24px 24px;
+    @include utilities.flexbox-param(flex, center, flex-end);
+  }
+}

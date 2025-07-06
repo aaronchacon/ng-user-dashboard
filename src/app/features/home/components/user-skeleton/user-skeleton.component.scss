@@ -1,5 +1,6 @@
-@use '../../../../../assets/styles/utilities/utilities.scss'as utilities;
-@use '../../../../../assets/styles/base/breakpoints'as breakpoints;
+@use 'utilities/utilities.scss' as utilities;
+@use 'base/breakpoints' as breakpoints;
+
 
 .user-skeleton {
   width: 100%;
@@ -36,7 +37,7 @@
     display: grid;
     padding: 12px;
     grid-gap: 12px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(6, 1fr);
   }
 

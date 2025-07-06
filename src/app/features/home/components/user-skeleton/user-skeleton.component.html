@@ -4,15 +4,7 @@
   </div>
   <div class="user-skeleton__container">
     <div class="user-skeleton__body">
-      <!-- @for (row of skeletonRows; track row) {
-        <div class="user-skeleton__row">
-          @for (item of skeletonItems; track item) {
-            <div class="user-skeleton__item | skeleton"></div>
-          }
-        </div>
-      } -->
-
-      @for (item of skeletonItems; track item) {
+      @for (item of skeletonItems; track $index) {
       <div class="user-skeleton__item | skeleton"></div>
       }
     </div>

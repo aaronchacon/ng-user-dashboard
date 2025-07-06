@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody class="user-table__body">
-        @for (user of users; track user.id) {
+        @for (user of users; track trackByUser($index, user)) {
           <tr class="user-table__row" (click)="onUserSelected(user)">
             <td class="user-table__item">{{ user.name }}</td>
             <td class="user-table__item">{{ user.email }}</td>
@@ -19,8 +19,6 @@
             <td class="user-table__item">{{ user.company.name }}</td>
             <td class="user-table__item user-table__action" >
               <app-ui-button
-
-                [variant]="'secondary'"
               >Details</app-ui-button>
             </td>
           </tr>

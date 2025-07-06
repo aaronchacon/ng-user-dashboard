@@ -12,4 +12,5 @@ export class UiButtonComponent {
   @Input() disabled = false;
   @Input() type: 'button' | 'submit' = 'button';
   @Input() variant: 'primary' | 'secondary' = 'primary';
+  @Input() size: 'medium' | 'large' = 'medium';
 }

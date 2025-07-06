@@ -50,3 +50,10 @@
     }
   </div>
 </div>
+
+@if (selectedUser$ | async; as selectedUser) {
+  <app-user-detail-modal
+    [user]="selectedUser"
+    (closeModal)="onCloseModal()"
+  />
+}

@@ -18,4 +18,8 @@ export class UserTableComponent {
   onUserSelected(user: User) {
     this.userSelected.emit(user);
   }
+
+  trackByUser(index: number, user: User): number {
+    return user.id || index;
+  }
 }
