@@ -198,11 +198,51 @@ src/app/features/home/
 - [x] Original implementation (no copied solutions)
 - [x] Modern Angular practices
 
-### ❌ Not Implemented
+## 🧪 Testing Implementation
 
-- [ ] Unit tests for components and services
-- [ ] Clear filter button when input is empty
-- [ ] Visual highlighting of selected rows
+### ✅ Implemented Tests
+
+#### **Component Testing**
+- **File**: `src/app/features/home/components/user-table/user-table.component.spec.ts`
+- **Component**: `UserTableComponent`
+- **Tests Covered**:
+  - Component creation and initialization
+  - Input property handling (`users` array)
+  - Template rendering (table display, empty states)
+  - Event handling (user selection, keyboard navigation)
+  - Method testing (`trackByUser` function)
+  - Accessibility features (ARIA labels, semantic HTML)
+
+#### **Service Testing**
+- **File**: `src/app/features/home/services/user.service.spec.ts`
+- **Service**: `UserService`
+- **Tests Covered**:
+  - Service creation and dependency injection
+  - Caching logic (return cached users when available)
+  - API integration (fetch users when cache is empty)
+  - Error handling (graceful API error management)
+  - Refresh functionality (clear cache and reload)
+  - Observable behavior with RxJS operators
+
+### **Testing Technologies**
+- **Framework**: Jasmine (Angular's default testing framework)
+- **Utilities**: Angular Testing Utilities (`ComponentFixture`, `TestBed`)
+- **Mocking**: Jasmine Spies for service dependencies
+- **RxJS Testing**: `take(1)` operator for async observable testing
+- **DOM Testing**: `By.css()` selectors for template verification
+
+### **Testing Best Practices Implemented**
+- **AAA Pattern**: Arrange, Act, Assert structure
+- **Isolation**: Mocked dependencies for isolated testing
+- **Async Testing**: Proper handling of observables and promises
+- **Coverage**: Essential functionality covered with meaningful tests
+- **Maintainability**: Clean, readable test code with descriptive names
+
+### **Key Testing Concepts Demonstrated**
+- **Component Testing**: Template rendering, input/output testing, event handling
+- **Service Testing**: Dependency injection, observable testing, error scenarios
+- **Mocking**: Service dependencies, API responses, error conditions
+- **Async Testing**: RxJS observables, promise handling, done() callbacks
 
 ## 🚀 Getting Started
 
