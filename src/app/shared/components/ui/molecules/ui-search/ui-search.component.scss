@@ -1,28 +1,21 @@
 @use 'utilities/utilities.scss' as utilities;
 
-.ui-search {
-  position: relative;
-  flex: 1;
-  max-width: 400px;
-
-  @include utilities.ontop-flexbox-param(flex, center, flex-start);
+:host {
+  width: 100%;
+  height: auto;
 }
 
-.ui-search__input {
+.ui-search {
   width: 100%;
-  padding: 12px 16px 12px 44px;
-  border: 1px solid var(--gray-300);
-  border-radius: 6px;
-  font-size: 14px;
-  transition: border-color 0.2s ease;
+  height: auto;
 
-  &:focus {
-    outline: none;
-    border-color: var(--primary-500);
-    box-shadow: 0 0 0 3px var(--primary-50);
-  }
-
-  &::placeholder {
-    color: var(--gray-500);
+  svg {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    min-height: 20px;
+    path {
+      stroke: var(--gray-500);
+    }
   }
 }

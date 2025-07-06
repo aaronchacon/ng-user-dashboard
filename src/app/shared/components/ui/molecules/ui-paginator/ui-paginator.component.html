@@ -1,31 +1,18 @@
 @if (paginationInfo && paginationInfo.totalPages > 1) {
-  <div class="ui-pagination">
-    <div class="ui-pagination__info">
-      {{ displayText }}
-    </div>
-
-    <div class="ui-pagination__controls">
-      <button
-        class="ui-pagination__btn"
-        [class.disabled]="!canGoPrevious"
-        (click)="onPreviousPage()"
-        [disabled]="!canGoPrevious"
-      >
-        Previous
-      </button>
-
-      <span class="ui-pagination__page-info">
-        Page {{ paginationInfo.currentPage }} of {{ paginationInfo.totalPages }}
-      </span>
-
-      <button
-        class="ui-pagination__btn"
-        [class.disabled]="!canGoNext"
-        (click)="onNextPage()"
-        [disabled]="!canGoNext"
-      >
-        Next
-      </button>
-    </div>
+<div class="ui-pagination">
+  <div class="ui-pagination__info">
+    {{ displayText }}
   </div>
+
+  <div class="ui-pagination__controls">
+    <app-ui-button variant="secondary" [disabled]="!canGoPrevious" (click)="onPreviousPage()">
+      Previous
+    </app-ui-button>
+
+
+    <app-ui-button variant="secondary" [disabled]="!canGoNext" (click)="onNextPage()">
+      Next
+    </app-ui-button>
+  </div>
+</div>
 }

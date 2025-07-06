@@ -3,43 +3,86 @@
 
 .user-list {
   width: 100%;
-  background-color: var(--base-white);
+  height: auto;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-}
+  background-color: var(--base-white);
+  box-shadow: 0px 1px 2px 0px #1018280F, 0px 1px 3px 0px #1018281A;
 
 
-.user-list__filter {
-  padding: 24px;
-  border-bottom: 1px solid var(--gray-200);
-  @include utilities.ontop-flexbox-param(flex, center, space-between);
-  gap: 16px;
+  &__header {
+    gap: 16px;
+    padding: 20px;
+    border-bottom: 1px solid var(--gray-200);
+    @include utilities.flexbox-param(flex, flex-end, space-between);
 
-  @include breakpoints.medium {
-    flex-direction: column;
-    align-items: stretch;
+    @include breakpoints.medium {
+      align-items: center;
+    }
+
+    @include breakpoints.small {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .user-list__search {
+      width: 40%;
+
+      @include breakpoints.xxl-large {
+        width: 60%;
+      }
+
+      @include breakpoints.medium {
+        width: 70%;
+      }
+
+      @include breakpoints.small {
+        width: 100%;
+        order: 2;
+      }
+    }
+
+    .user-list__description {
+      width: 40%;
+      height: auto;
+      @include utilities.flexbox-param(flex, center, flex-end);
+
+      @include breakpoints.medium {
+        width: fit-content;
+      }
+
+      .user-list__badge {
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 4px 10px;
+        border-radius: 16px;
+        background-color: var(--primary-50);
+        display: flex;
+        @include utilities.font-details(12px, 18px, 600, var(--primary-700));
+      }
+    }
+
+
+
   }
 
-  @include breakpoints.small {
-    padding: 16px;
+  &__body {
+    width: 100%;
+    height: auto;
+  }
+
+  &__pagination {
+    width: 100%;
+    height: auto;
+  }
+
+  &__empty {
+    width: 100%;
+    height: 100%;
+    @include utilities.flexbox-param(flex, center, center);
   }
 }
 
-.user-list__results-count {
-  color: var(--gray-600);
-  font-size: 14px;
-  font-weight: 500;
-}
 
-.user-list__empty {
-  padding: 48px 24px;
-  text-align: center;
-  color: var(--gray-600);
-
-  p {
-    margin: 0;
-    font-size: 16px;
-  }
-}
 

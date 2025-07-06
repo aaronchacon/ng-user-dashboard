@@ -8,6 +8,7 @@ import { UIPaginatorComponent } from '../../../../shared/components/ui/molecules
 import { UserTableService } from './services/user-table.service';
 import { UserListProviders } from './user-list.providers';
 import { PaginationInfo } from './services/user-pagination.service';
+import { UiEmptyComponent } from '../../../../shared/components/ui/molecules/ui-empty/ui-empty.component';
 
 @Component({
   standalone: true,
@@ -15,7 +16,7 @@ import { PaginationInfo } from './services/user-pagination.service';
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss',
   providers: UserListProviders,
-  imports: [CommonModule, UISearchComponent, UserTableComponent, UIPaginatorComponent],
+  imports: [CommonModule, UISearchComponent, UserTableComponent, UIPaginatorComponent, UiEmptyComponent],
 })
 export class UserListComponent implements OnInit {
   private userTableService = inject(UserTableService);
@@ -24,10 +25,13 @@ export class UserListComponent implements OnInit {
     this.userTableService.setUsers(value);
   }
 
-  @Input() isLoading = false;
-
   paginatedUsers$: Observable<User[]> = this.userTableService.paginatedUsers$;
   paginationInfo$: Observable<PaginationInfo> = this.userTableService.paginationInfo$;
+
+
+  ngOnInit(): void {
+    this.userTableService.setupFilteringAndPagination();
+  }
 
   onSearchChange(searchText: string): void {
     this.userTableService.updateFilter(searchText);
@@ -41,7 +45,11 @@ export class UserListComponent implements OnInit {
     this.userTableService.goToNextPage();
   }
 
-  ngOnInit(): void {
-    this.userTableService.setupFilteringAndPagination();
+  onClearSearch(): void {
+    this.userTableService.updateFilter('');
+  }
+
+  onUserSelected(user: User): void {
+    console.log(user);
   }
 }

@@ -2,88 +2,28 @@
 @use 'base/breakpoints' as breakpoints;
 
 .ui-pagination {
-  padding: 24px;
-  border-top: 1px solid var(--gray-200);
-  @include utilities.ontop-flexbox-param(flex, center, space-between);
   gap: 16px;
+  width: 100%;
+  height: auto;
+  padding: 20px 24px;
+  border-top: 1px solid var(--gray-200);
+  @include utilities.flexbox-param(flex, center, space-between);
 
-  @include breakpoints.medium {
-    flex-direction: column;
-    align-items: center;
+  @include breakpoints.small {
     gap: 12px;
+    align-items: center;
+    flex-direction: column;
   }
 }
 
 .ui-pagination__info {
-  color: var(--gray-600);
-  font-size: 14px;
-  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0;
+  @include utilities.font-details(14px, 20px, 600, var(--gray-700));
 }
 
 .ui-pagination__controls {
-  @include utilities.ontop-flexbox-param(flex, center, center);
   gap: 16px;
   align-items: center;
-}
-
-.ui-pagination__btn {
-  padding: 8px 16px;
-  border: 1px solid var(--gray-300);
-  background-color: var(--base-white);
-  color: var(--gray-700);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover:not(.disabled) {
-    background-color: var(--gray-50);
-    border-color: var(--gray-400);
-  }
-
-  &.disabled {
-    color: var(--gray-400);
-    cursor: not-allowed;
-    background-color: var(--gray-50);
-  }
-}
-
-.ui-pagination__page-info {
-  color: var(--gray-600);
-  font-size: 14px;
-  font-weight: 500;
-  padding: 0 8px;
-}
-
-
-@include breakpoints.medium {
-  .pagination-btn {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-
-  .page-info {
-    font-size: 12px;
-  }
-}
-
-@include breakpoints.small {
-  .pagination-container {
-    padding: 16px;
-  }
-
-  .pagination-controls {
-    gap: 12px;
-  }
-
-  .pagination-btn {
-    padding: 6px 10px;
-    font-size: 11px;
-  }
-
-  .page-info {
-    font-size: 11px;
-    padding: 0 4px;
-  }
+  @include utilities.flexbox-param(flex, center, center);
 }

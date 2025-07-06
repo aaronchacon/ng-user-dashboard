@@ -2,182 +2,65 @@
 @use '../../../../../assets/styles/base/breakpoints' as breakpoints;
 
 
-.table-container {
+.user-table {
+  width: 100%;
+  height: auto;
   overflow-x: auto;
   max-width: 100%;
-}
 
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
 
-.users-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-
-  th {
+  &__header {
+    width: 100%;
+    height: auto;
     background-color: var(--gray-50);
-    padding: 16px 12px;
-    text-align: left;
-    font-weight: 600;
-    color: var(--gray-700);
     border-bottom: 1px solid var(--gray-200);
-    white-space: nowrap;
+    @include utilities.font-details(14px, 20px, 600, var(--gray-700));
 
-    &:first-child {
-      padding-left: 24px;
-    }
-
-    &:last-child {
-      padding-right: 24px;
-    }
-  }
-
-  td {
-    padding: 16px 12px;
-    border-bottom: 1px solid var(--gray-100);
-    vertical-align: middle;
-
-    &:first-child {
-      padding-left: 24px;
-    }
-
-    &:last-child {
-      padding-right: 24px;
+    .user-table__top {
+      min-width: 150px;
+      padding: 12px 16px;
+      text-align: center;
+      @include utilities.font-details(12px, 18px, 500, var(--gray-500));
     }
   }
 
-  .user-row {
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background-color: var(--gray-50);
-    }
-  }
-}
-
-// Celda del nombre
-.name-cell {
-  @include utilities.ontop-flexbox-param(flex, center, flex-start);
-  gap: 12px;
-}
-
-.user-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: var(--primary-500);
-  color: var(--base-white);
-  @include utilities.ontop-flexbox-param(flex, center, center);
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.user-name {
-  font-weight: 600;
-  color: var(--gray-900);
-}
-
-.user-email {
-  color: var(--gray-700);
-}
-
-.user-phone {
-  color: var(--gray-600);
-  font-family: monospace;
-}
-
-.user-company {
-  color: var(--gray-700);
-  font-weight: 500;
-}
+  &__body {
+    width: 100%;
+    height: auto;
 
 
-.action-btn {
-  padding: 8px 16px;
-  background-color: var(--primary-500);
-  color: var(--base-white);
-  border: none;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+    .user-table__row {
+      width: auto;
+      height: auto;
+      transition: background-color 0.2s ease;
+      border-bottom: 1px solid var(--gray-100);
 
-  &:hover {
-    background-color: var(--primary-600);
-  }
-
-  &:active {
-    background-color: var(--primary-700);
-  }
-}
-
-// Estados de carga y sin resultados
-.loading,
-.no-users {
-  padding: 48px 24px;
-  text-align: center;
-  color: var(--gray-600);
-
-  p {
-    margin: 0;
-    font-size: 16px;
-  }
-}
-
-// Responsive
-@include breakpoints.medium {
-  .users-table {
-    font-size: 12px;
-
-    th,
-    td {
-      padding: 12px 8px;
-
-      &:first-child {
-        padding-left: 16px;
-      }
-
-      &:last-child {
-        padding-right: 16px;
+      &:hover {
+        background-color: var(--gray-100);
+        border-bottom: 1px solid var(--gray-200);
       }
     }
-  }
 
-  .user-avatar {
-    width: 28px;
-    height: 28px;
-    font-size: 12px;
-  }
-
-  .action-btn {
-    padding: 6px 12px;
-    font-size: 11px;
-  }
-}
-
-@include breakpoints.small {
-  .users-table {
-    th,
-    td {
-      padding: 8px 4px;
-
-      &:first-child {
-        padding-left: 12px;
-      }
-
-      &:last-child {
-        padding-right: 12px;
-      }
+    .user-table__item {
+      text-align: center;
+      cursor: pointer;
+      min-width: 150px;
+      max-width: 250px;
+      padding: 12px 16px;
+      @include utilities.truncate();
+      @include utilities.font-details(14px, 20px, 500, var(--gray-700));
     }
-  }
 
-  .name-cell {
-    gap: 8px;
-  }
-
-  .user-avatar {
-    width: 24px;
-    height: 24px;
-    font-size: 10px;
+    .user-table__action {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

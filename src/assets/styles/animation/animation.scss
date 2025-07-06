@@ -1,0 +1,22 @@
+.skeleton {
+  background: linear-gradient(90deg,
+      var(--gray-300),
+      var(--base-white),
+      var(--gray-300) );
+  animation-name: skeleton-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: forwards;
+  animation-timing-function: linear;
+  background-size: 200% 100%;
+}
+
+@keyframes skeleton-animation {
+  from {
+    background-position: 100% 0%;
+  }
+
+  to {
+    background-position: -100% 0%;
+  }
+}

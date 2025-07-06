@@ -4,6 +4,7 @@ import { combineLatest, delay } from 'rxjs';
 import { UserListComponent } from '../../components/user-list/user-list.component';
 import { UserService } from '../../services/user.service';
 import { HomePageProviders } from './home-page.provider';
+import { UserSkeletonComponent } from '../../components/user-skeleton/user-skeleton.component';
 
 @Component({
   standalone: true,
@@ -14,6 +15,7 @@ import { HomePageProviders } from './home-page.provider';
     CommonModule,
     AsyncPipe,
     UserListComponent,
+    UserSkeletonComponent,
     ],
     providers: [HomePageProviders],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -23,6 +25,5 @@ export class HomePageComponent {
 
   vm$ = combineLatest({
     users: this.userService.users$,
-    isLoading: this.userService.isLoading$,
   }).pipe(delay(1000));
 }

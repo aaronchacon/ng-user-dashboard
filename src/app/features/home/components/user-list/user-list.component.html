@@ -1,33 +1,54 @@
 <div class="user-list">
-
   <!-- Search filter -->
-  <div class="user-list__filter">
-    <app-ui-search (searchChange)="onSearchChange($event)" />
+  <div class="user-list__header">
+    <div class="user-list__search">
+      <app-ui-search
+        [placeholder]="'Search by name or email'"
+        (searchChange)="onSearchChange($event)"
+      />
+    </div>
+    <div class="user-list__description">
+      @if (paginatedUsers$ | async; as paginatedUsers) {
+        <div class="user-list__badge">
+          {{ paginatedUsers.length }} results
+        </div>
+      }
+    </div>
   </div>
 
-  <!-- Users table -->
-  @if (paginatedUsers$ | async; as paginatedUsers) {
-    @if (paginatedUsers.length > 0) {
-      <app-user-table
-        [users]="paginatedUsers"
-        [isLoading]="isLoading"
-      />
+  <div class="user-list__body">
+    <!-- Users table -->
+    @if (paginatedUsers$ | async; as paginatedUsers) {
+      @if (paginatedUsers.length > 0) {
+        <app-user-table
+          [users]="paginatedUsers"
+          (userSelected)="onUserSelected($event)"
+        />
 
-      <!-- Pagination -->
-      @if (paginationInfo$ | async; as paginationInfo) {
-        @if (paginationInfo.totalPages > 1) {
-          <app-ui-paginator
-            [paginationInfo]="paginationInfo"
-            (previousPage)="onPreviousPage()"
-            (nextPage)="onNextPage()"
-          />
+        <!-- Pagination -->
+        @if (paginationInfo$ | async; as paginationInfo) {
+          @if (paginationInfo.totalPages > 1) {
+            <div class="user-list__pagination">
+              <app-ui-paginator
+                [paginationInfo]="paginationInfo"
+                (previousPage)="onPreviousPage()"
+                (nextPage)="onNextPage()"
+              />
+            </div>
+          }
         }
+      } @else {
+        <div class="user-list__empty">
+          <app-ui-empty
+            [title]="'No users found'"
+            [description]="'Try to search for a different name or email'"
+            [primaryButtonText]="'Clear search'"
+            (primaryButtonEvent)="onClearSearch()"
+          />
+        </div>
       }
-    } @else {
-      <div class="user-list__empty">
-        <p>No users found</p>
-      </div>
     }
-  }
-</div>
+  </div>
 
+  <div class="user-list__pagination"></div>
+</div>

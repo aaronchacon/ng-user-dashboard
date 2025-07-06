@@ -1,15 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../models/user.model';
+import { UiButtonComponent } from '../../../../shared/components/ui/atoms/ui-button/ui-button.component';
 
 @Component({
   standalone: true,
   selector: 'app-user-table',
   templateUrl: './user-table.component.html',
   styleUrl: './user-table.component.scss',
-  imports: [CommonModule],
+  imports: [CommonModule, UiButtonComponent],
 })
 export class UserTableComponent {
   @Input() users: User[] = [];
-  @Input() isLoading: boolean = false;
+
+  @Output() userSelected = new EventEmitter<User>();
+
+  onUserSelected(user: User) {
+    this.userSelected.emit(user);
+  }
 }

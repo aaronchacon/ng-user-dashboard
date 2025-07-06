@@ -1,43 +1,32 @@
 @if (users.length > 0) {
-  <div class="table-container">
-    <table class="users-table">
-      <thead>
+  <div class="user-table">
+    <table class="user-table__table">
+      <thead class="user-table__header">
         <tr>
-          <th>Nombre</th>
-          <th>Email</th>
-          <th>Teléfono</th>
-          <th>Empresa</th>
-          <th>Acciones</th>
+          <th class="user-table__top">Name</th>
+          <th class="user-table__top">Email</th>
+          <th class="user-table__top">Phone</th>
+          <th class="user-table__top">Company</th>
+          <th class="user-table__top">Action</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="user-table__body">
         @for (user of users; track user.id) {
-          <tr class="user-row">
-            <td class="user-name">
-              <div class="name-cell">
-                <div class="user-avatar">{{ user.name.charAt(0).toUpperCase() }}</div>
-                <span>{{ user.name }}</span>
-              </div>
-            </td>
-            <td class="user-email">{{ user.email }}</td>
-            <td class="user-phone">{{ user.phone }}</td>
-            <td class="user-company">{{ user.company.name }}</td>
-            <td class="user-actions">
-              <button class="action-btn">Ver detalles</button>
+          <tr class="user-table__row">
+            <td class="user-table__item">{{ user.name }}</td>
+            <td class="user-table__item">{{ user.email }}</td>
+            <td class="user-table__item">{{ user.phone }}</td>
+            <td class="user-table__item">{{ user.company.name }}</td>
+            <td class="user-table__item user-table__action" >
+              <app-ui-button
+
+                [variant]="'secondary'"
+                (click)="onUserSelected(user)"
+              >Details</app-ui-button>
             </td>
           </tr>
         }
       </tbody>
     </table>
-  </div>
-} @else if (!isLoading) {
-  <div class="no-users">
-    <p>No hay usuarios disponibles</p>
-  </div>
-}
-
-@if (isLoading) {
-  <div class="loading">
-    <p>Cargando usuarios...</p>
   </div>
 }

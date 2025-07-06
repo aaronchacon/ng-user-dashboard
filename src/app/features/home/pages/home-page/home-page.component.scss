@@ -5,12 +5,21 @@
   height: auto;
   min-height: 100dvh;
   padding: 32px;
-  background-color: var(--base-white);
+  background-color: var(--gray-50);
 
   &__header {
     width: 100%;
     height: auto;
     margin-bottom: 40px;
-    @include utilities.ontop-flexbox-param(flex, center, space-between);
+  }
+
+  &__title {
+    margin: 0;
+    @include utilities.font-details(30px, 38px, 600, var(--gray-900));
+  }
+
+  &__subtitle {
+    margin: 0;
+    @include utilities.font-details(16px, 24px, 500, var(--gray-500));
   }
 }

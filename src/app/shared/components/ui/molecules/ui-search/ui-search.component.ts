@@ -1,20 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { UiInputComponent } from '../../atoms/ui-input/ui-input.component';
 
 @Component({
   standalone: true,
   selector: 'app-ui-search',
   templateUrl: './ui-search.component.html',
   styleUrl: './ui-search.component.scss',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, UiInputComponent],
 })
 export class UISearchComponent {
   @Input() placeholder =  'Search...';
   @Output() searchChange = new EventEmitter<string>();
 
-  onSearchChange(event: Event) {
-    const target = event.target as HTMLInputElement;
-    this.searchChange.emit(target.value);
+  searchIcon = 'assets/img/icons/search-lg.svg';
+
+  onSearchChange(value: string) {
+    this.searchChange.emit(value);
   }
 }

@@ -5,5 +5,8 @@
 @use "./base/reset";
 @use "./base/variables";
 
+// Animation
+@use "./animation/animation.scss";
+
 // Utilities
 @use "./utilities/utilities.scss";

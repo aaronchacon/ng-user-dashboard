@@ -1,0 +1,48 @@
+@use 'utilities/utilities.scss' as utilities;
+
+:host {
+  width: 100%;
+}
+
+.ui-empty {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  padding: 24px;
+  flex-direction: column;
+  @include utilities.flexbox-param(flex, flex-start, center);
+
+  .ui-empty__content {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    @include utilities.flexbox-param(flex, center, center);
+
+    .ui-empty__image {
+      width: 100%;
+      height: auto;
+      margin-bottom: 16px;
+      @include utilities.flexbox-param(flex, center, center);
+    }
+
+    .ui-empty__title {
+      margin-top: 0;
+      margin-bottom: 4px;
+      @include utilities.font-details(16px, 24px, 600, var(--gray-900));
+    }
+
+    .ui-empty__description {
+      margin-top: 0;
+      margin-bottom: 0;
+      @include utilities.font-details(14px, 20px, 400, var(--gray-600));
+    }
+  }
+
+  .ui-empty__actions {
+    gap: 12px;
+    width: 100%;
+    height: auto;
+    margin-top: 24px;
+    @include utilities.flexbox-param(flex, center, center);
+  }
+}

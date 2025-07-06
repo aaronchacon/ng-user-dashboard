@@ -1,16 +1,15 @@
 <div class="home-page">
   <div class="home-page__header">
-    <h1>Welcome back</h1>
-
-
+    <h1 class="home-page__title">Welcome back</h1>
+    <p class="home-page__subtitle">Here's a list of your team members</p>
   </div>
 
     <div class="home-page__container">
     <div class="home-page__table">
       @if (vm$ | async; as vm) {
-        <app-user-list [users]="vm.users" [isLoading]="vm.isLoading"></app-user-list>
+        <app-user-list [users]="vm.users"></app-user-list>
       } @else {
-        <p>Loading...</p>
+        <app-user-skeleton />
       }
     </div>
   </div>

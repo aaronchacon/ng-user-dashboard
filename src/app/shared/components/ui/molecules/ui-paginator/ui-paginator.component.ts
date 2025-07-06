@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { UiButtonComponent } from '../../atoms/ui-button/ui-button.component';
 
 export interface PaginationInfo {
   currentPage: number;
@@ -13,7 +14,7 @@ export interface PaginationInfo {
   selector: 'app-ui-paginator',
   templateUrl: './ui-paginator.component.html',
   styleUrl: './ui-paginator.component.scss',
-  imports: [CommonModule],
+  imports: [CommonModule, UiButtonComponent],
 })
 export class UIPaginatorComponent {
   @Input() paginationInfo: PaginationInfo | null = null;
@@ -31,11 +32,11 @@ export class UIPaginatorComponent {
   get displayText(): string {
     if (!this.paginationInfo) return '';
 
-    const { currentPage, totalPages, totalItems, itemsPerPage } = this.paginationInfo;
+    const { currentPage, totalItems, itemsPerPage } = this.paginationInfo;
     const start = (currentPage - 1) * itemsPerPage + 1;
     const end = Math.min(currentPage * itemsPerPage, totalItems);
 
-    return `Mostrando ${start}-${end} de ${totalItems} usuarios`;
+    return `${start}-${end} of ${totalItems}`;
   }
 
   onPreviousPage(): void {
