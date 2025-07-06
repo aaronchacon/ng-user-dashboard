@@ -12,7 +12,7 @@
       </thead>
       <tbody class="user-table__body">
         @for (user of users; track user.id) {
-          <tr class="user-table__row">
+          <tr class="user-table__row" (click)="onUserSelected(user)">
             <td class="user-table__item">{{ user.name }}</td>
             <td class="user-table__item">{{ user.email }}</td>
             <td class="user-table__item">{{ user.phone }}</td>
@@ -21,7 +21,6 @@
               <app-ui-button
 
                 [variant]="'secondary'"
-                (click)="onUserSelected(user)"
               >Details</app-ui-button>
             </td>
           </tr>
