@@ -2,6 +2,12 @@
 
 A modern Angular application that displays user data from a public API with advanced features and excellent UX. This project demonstrates modern Angular development practices with a focus on reactive programming, component architecture, and user experience.
 
+## 🌐 Live Demo
+
+**Visit the application:** [https://ng-user-dashboard.netlify.app/](https://ng-user-dashboard.netlify.app/)
+
+Experience the full functionality including user search, pagination, modal details, and responsive design.
+
 ## 📸 Screenshots
 
 ### Main Dashboard
