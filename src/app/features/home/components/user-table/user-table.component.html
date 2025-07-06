@@ -1,24 +1,34 @@
 @if (users.length > 0) {
-  <div class="user-table">
-    <table class="user-table__table">
+  <div class="user-table" role="region" aria-label="Users table">
+    <table class="user-table__table" role="table">
       <thead class="user-table__header">
         <tr>
-          <th class="user-table__top">Name</th>
-          <th class="user-table__top">Email</th>
-          <th class="user-table__top">Phone</th>
-          <th class="user-table__top">Company</th>
-          <th class="user-table__top">Action</th>
+          <th class="user-table__top" scope="col">Name</th>
+          <th class="user-table__top" scope="col">Email</th>
+          <th class="user-table__top" scope="col">Phone</th>
+          <th class="user-table__top" scope="col">Company</th>
+          <th class="user-table__top" scope="col">Action</th>
         </tr>
       </thead>
       <tbody class="user-table__body">
         @for (user of users; track trackByUser($index, user)) {
-          <tr class="user-table__row" (click)="onUserSelected(user)">
-            <td class="user-table__item">{{ user.name }}</td>
-            <td class="user-table__item">{{ user.email }}</td>
-            <td class="user-table__item">{{ user.phone }}</td>
-            <td class="user-table__item">{{ user.company.name }}</td>
-            <td class="user-table__item user-table__action" >
+          <tr
+            class="user-table__row"
+            (click)="onUserSelected(user)"
+            (keyup.enter)="onUserSelected(user)"
+            (keyup.space)="onUserSelected(user)"
+            tabindex="0"
+            role="row"
+            [attr.aria-label]="'User row for ' + user.name"
+          >
+            <td class="user-table__item" role="cell">{{ user.name }}</td>
+            <td class="user-table__item" role="cell">{{ user.email }}</td>
+            <td class="user-table__item" role="cell">{{ user.phone }}</td>
+            <td class="user-table__item" role="cell">{{ user.company.name }}</td>
+            <td class="user-table__item user-table__action" role="cell">
               <app-ui-button
+                [variant]="'secondary'"
+                [ariaLabel]="'View details for ' + user.name"
               >Details</app-ui-button>
             </td>
           </tr>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { UiButtonComponent } from '../../atoms/ui-button/ui-button.component';
 
 export interface PaginationInfo {
@@ -15,6 +15,7 @@ export interface PaginationInfo {
   templateUrl: './ui-paginator.component.html',
   styleUrl: './ui-paginator.component.scss',
   imports: [CommonModule, UiButtonComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UIPaginatorComponent {
   @Input() paginationInfo: PaginationInfo | null = null;

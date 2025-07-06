@@ -1,17 +1,19 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-ui-input',
   standalone: true,
-  imports: [CommonModule],
+  selector: 'app-ui-input',
   templateUrl: './ui-input.component.html',
-  styleUrl: './ui-input.component.scss'
+  styleUrl: './ui-input.component.scss',
+  imports: [CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UiInputComponent {
   @Input() value = '';
   @Input() placeholder = '';
   @Input() disabled = false;
+  @Input() ariaLabel?: string;
   @Output() valueChange = new EventEmitter<string>();
 
   handleInput(event: Event): void {

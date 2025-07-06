@@ -1,16 +1,16 @@
-<div class="user-skeleton">
+<section class="user-skeleton" role="status" aria-label="Loading users">
   <div class="user-skeleton__header">
-    <div class="user-skeleton__item | skeleton"></div>
+    <div class="user-skeleton__item | skeleton" aria-hidden="true"></div>
   </div>
   <div class="user-skeleton__container">
     <div class="user-skeleton__body">
       @for (item of skeletonItems; track $index) {
-      <div class="user-skeleton__item | skeleton"></div>
+      <div class="user-skeleton__item | skeleton" aria-hidden="true"></div>
       }
     </div>
   </div>
   <div class="user-skeleton__pagination">
-    <div class="user-skeleton__item | skeleton"></div>
-    <div class="user-skeleton__item | skeleton"></div>
+    <div class="user-skeleton__item | skeleton" aria-hidden="true"></div>
+    <div class="user-skeleton__item | skeleton" aria-hidden="true"></div>
   </div>
-</div>
+</section>

@@ -1,4 +1,4 @@
-<div class="user-list">
+<section class="user-list" role="region" aria-label="Users list">
   <!-- Search filter -->
   <div class="user-list__header">
     <div class="user-list__search">
@@ -7,9 +7,10 @@
         (searchChange)="onSearchChange($event)"
       />
     </div>
+
     <div class="user-list__description">
       @if (paginatedUsers$ | async; as paginatedUsers) {
-        <div class="user-list__badge">
+        <div class="user-list__badge" aria-live="polite">
           {{ paginatedUsers.length }} results
         </div>
       }
@@ -49,7 +50,7 @@
       }
     }
   </div>
-</div>
+</section>
 
 @if (selectedUser$ | async; as selectedUser) {
   <app-user-detail-modal

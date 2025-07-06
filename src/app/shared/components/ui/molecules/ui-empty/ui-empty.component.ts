@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { UiButtonComponent } from '../../atoms/ui-button/ui-button.component';
 
 @Component({
@@ -8,6 +8,7 @@ import { UiButtonComponent } from '../../atoms/ui-button/ui-button.component';
   templateUrl: './ui-empty.component.html',
   styleUrl: './ui-empty.component.scss',
   imports: [CommonModule, UiButtonComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UiEmptyComponent {
   @Input() title: string | null = null;

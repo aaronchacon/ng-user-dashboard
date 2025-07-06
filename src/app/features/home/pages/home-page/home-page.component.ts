@@ -1,5 +1,5 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { combineLatest, delay } from 'rxjs';
 import { UserListComponent } from '../../components/user-list/user-list.component';
 import { UserService } from '../../services/user.service';
@@ -19,6 +19,7 @@ import { UserSkeletonComponent } from '../../components/user-skeleton/user-skele
     ],
     providers: [HomePageProviders],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePageComponent {
   private userService = inject(UserService);

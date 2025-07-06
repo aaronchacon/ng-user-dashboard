@@ -1,16 +1,25 @@
 @if (paginationInfo && paginationInfo.totalPages > 1) {
-<div class="ui-pagination">
-  <div class="ui-pagination__info">
+<div class="ui-pagination" role="navigation" aria-label="Pagination">
+  <div class="ui-pagination__info" aria-live="polite">
     {{ displayText }}
   </div>
 
   <div class="ui-pagination__controls">
-    <app-ui-button variant="secondary" [disabled]="!canGoPrevious" (click)="onPreviousPage()">
+    <app-ui-button
+      variant="secondary"
+      [disabled]="!canGoPrevious"
+      (click)="onPreviousPage()"
+      [ariaLabel]="'Go to previous page'"
+    >
       Previous
     </app-ui-button>
 
-
-    <app-ui-button variant="secondary" [disabled]="!canGoNext" (click)="onNextPage()">
+    <app-ui-button
+      variant="secondary"
+      [disabled]="!canGoNext"
+      (click)="onNextPage()"
+      [ariaLabel]="'Go to next page'"
+    >
       Next
     </app-ui-button>
   </div>

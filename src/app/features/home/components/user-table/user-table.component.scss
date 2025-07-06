@@ -38,10 +38,17 @@
       height: auto;
       transition: background-color 0.2s ease;
       border-bottom: 1px solid var(--gray-100);
+      cursor: pointer;
+      outline: none;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: var(--gray-100);
         border-bottom: 1px solid var(--gray-200);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--blue-500);
       }
     }
 

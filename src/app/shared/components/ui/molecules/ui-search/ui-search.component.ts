@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UiInputComponent } from '../../atoms/ui-input/ui-input.component';
 
@@ -9,6 +9,7 @@ import { UiInputComponent } from '../../atoms/ui-input/ui-input.component';
   templateUrl: './ui-search.component.html',
   styleUrl: './ui-search.component.scss',
   imports: [CommonModule, FormsModule, UiInputComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UISearchComponent {
   @Input() placeholder =  'Search...';

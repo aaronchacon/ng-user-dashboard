@@ -1,18 +1,38 @@
-<div class="user-detail-modal-backdrop" (click)="onCloseModal()" (keyup.esc)="onCloseModal()" tabindex="0"></div>
-<div class="user-detail-modal">
+<div
+  class="user-detail-modal-backdrop | backdrop-fade-in backdrop-fade-in-delay-1"
+  (click)="onCloseModal()"
+  (keyup.esc)="onCloseModal()"
+  tabindex="0"
+  role="presentation"
+  aria-hidden="true"
+></div>
+<div
+  class="user-detail-modal | modal-fade-in modal-fade-in-delay-2"
+  role="dialog"
+  aria-labelledby="modal-title"
+  aria-describedby="modal-description"
+  tabindex="-1"
+>
   <div class="user-detail-modal__header">
     <div class="user-detail-modal__icon">
       <img [src]="userIcon" alt="User Icon" />
     </div>
-    <div class="user-detail-modal__close" (click)="onCloseModal()" (keyup.esc)="onCloseModal()" tabindex="0">
+    <button
+      class="user-detail-modal__close"
+      (click)="onCloseModal()"
+      (keyup.esc)="onCloseModal()"
+      tabindex="0"
+      aria-label="Close modal"
+      type="button"
+    >
       <img [src]="closeIcon" alt="Close Icon" />
-    </div>
+    </button>
   </div>
   <div class="user-detail-modal__body">
-    <h2 class="user-detail-modal__title">
+    <h2 class="user-detail-modal__title" id="modal-title">
       {{ user?.name }}
     </h2>
-    <p class="user-detail-modal__subtitle">
+    <p class="user-detail-modal__subtitle" id="modal-description">
       {{ user?.email }}
     </p>
 
@@ -39,7 +59,15 @@
 
   </div>
   <div class="user-detail-modal__footer">
-    <app-ui-button [variant]="'secondary'" (click)="onCloseModal()" (keyup.esc)="onCloseModal()" tabindex="0">Cancel</app-ui-button>
-    <app-ui-button [variant]="'primary'" (click)="onCloseModal()" (keyup.esc)="onCloseModal()" tabindex="0">Confirm</app-ui-button>
+    <app-ui-button
+      [variant]="'secondary'"
+      (click)="onCloseModal()"
+      [ariaLabel]="'Cancel and close modal'"
+    >Cancel</app-ui-button>
+    <app-ui-button
+      [variant]="'primary'"
+      (click)="onCloseModal()"
+      [ariaLabel]="'Confirm and close modal'"
+    >Confirm</app-ui-button>
   </div>
 </div>
